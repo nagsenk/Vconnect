@@ -1,0 +1,39 @@
+{% extends 'student/base.html' %}
+{% block body %}
+
+    <div class="container">
+        <h2>Lecture Videos</h2>
+
+        {% if video_dict %}
+            {% for values in video_dict.items %}
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#collapse1"></a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div>
+                                    {% for value in values %}
+
+                                    <h1>{{value}}</h1>
+
+                                    {% endfor %}
+                                    <video width="600" height="240" controls>
+                                                     <source src="{%static '{{ values.path }}' type="video/mp4">
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No assignments yet.</p>
+        {% endif %}
+
+    </div>
+
+{% endblock %}

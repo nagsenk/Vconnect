@@ -1,0 +1,83 @@
+{% extends 'student/base.html' %}
+{% block allot_active %} active {% endblock %}
+{% block home_active %} passive {% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+    <div style="padding-left: 2%; padding-top: 1%;padding-bottom: 40%;width: 90%;">
+
+
+         {% if type == 1 %}
+                <h1>Assignments</h1>
+                {% for upload in l %}
+
+                    <h7>Uploaded by: {{upload.educator}}</h7>
+        <br>
+                    <h7>Topic: {{ upload.topic}}</h7>
+                    <h6>Uploaded on {{ upload.uploaded_on}}</h6>
+                    <h6>Uploaded at {{ upload.uploaded_at}}</h6>
+                    <h6>Comment: {{upload.comment}}</h6>
+                    <img src="/media/{{upload.item}}"  height="420" width="420"/>
+
+
+                {% endfor %}
+
+
+
+
+
+        {% elif type == 2 %}
+               <h1>Lecture Videos</h1>
+
+                        {% for upload in l %}
+
+       <h2>Uploaded By: {{ upload.educator}}</h2>
+        <h2>Topic: {{ upload.topic}}</h2>
+        <h7>Uploaded on {{ upload.uploaded_on}}</h7>
+        <br>
+        <h7>Uploaded at {{ upload.uploaded_at}}</h7>
+        <br>
+        <h7>Comment: {{upload.comment}}</h7>
+        <br>
+
+
+
+
+
+
+
+            <video width="800" height="360" controls>
+<source src="/media/{{upload.item}}" type="video/mp4">
+
+Your browser does not support the video tag.
+</video>
+
+
+        <br>
+  {% endfor %}
+
+
+         {% elif type == 3 %}
+<h1>Study Materials</h1>
+                {% for upload in l %}
+                 <h7>Uploaded by: {{upload.educator}}</h7>
+                    <h7>Topic: {{ upload.topic}}</h7>
+                    <h7>Uploaded on {{ upload.uploaded_on}}</h7>
+                    <br>
+                    <h6>Uploaded at {{ upload.uploaded_at}}</h6>
+                    <br>
+                    <h6>Comment: {{upload.comment}}</h6>
+                    <br>
+
+                    <img src="/media/{{upload.item}}"  height="420" width="420"/>
+
+                {% endfor %}
+                        {%else%}
+                        <h2>Nothing</h2>
+
+
+        {% endif %}
+
+    </div>
+{% endblock %}

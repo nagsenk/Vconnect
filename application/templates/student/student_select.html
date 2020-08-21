@@ -1,0 +1,29 @@
+{% extends 'student/base.html' %}
+{% block body %}
+
+    <div class="container">
+        <h2>Please Select Subject</h2>
+
+        <br>
+        <br>
+
+        <br>
+
+
+
+
+                                           <a href="{% url 'application:subject_selected' student_id=student_id subject="Physics"  %}"> Physics </a>
+                                            <br>
+
+        <a href="{% url 'application:subject_selected' student_id=student_id subject="Chemistry"  %}">Chemistry </a>
+                                            <br>
+
+        <a href="{% url 'application:subject_selected' student_id=student_id subject="Maths"  %}"> Maths </a>
+        <br>
+
+
+
+
+    </div>
+
+{% endblock %}

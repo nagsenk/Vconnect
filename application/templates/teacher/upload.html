@@ -1,0 +1,64 @@
+{% extends 'teacher/base3.html' %}
+{% block allot_active %} active {% endblock %}
+{% block home_active %} passive {% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+    <div style="padding-left: 2%; padding-top: 1%;padding-bottom: 40%;width: 90%;">
+
+
+
+
+							<h2>Upload study material</h2><a href="/">Home</a>
+							<form method="post" enctype="multipart/form-data">
+							   {% csrf_token %}
+
+								<div class="reg-fom-btm mt-5">
+									<div class="fields">
+											<div class="col-md-6 contact_left_grid">
+								<div class="contact-fields-w3ls">
+									<h2> Select subject (  type accordingly :) )</h2>
+									<br>
+									<h3>1- Physics       2- Chemistry     3-Maths</h3>
+								<input type="number" name="subject" placeholder="Subject Option" required="">
+								</div>
+												<br>
+								<div class="contact-fields-w3ls">
+									<h2> Select Type of Material</h2>
+									<br>
+									<h3>1- Video Lecture       2- Assignment     3- Study Material(pdf, png formats) </h3>
+								<input type="number" name="option" placeholder="Upload Option" required="">
+								</div>
+												<br>
+
+								<div class="contact-fields-w3ls">
+									<h2> Topic </h2>
+
+
+								<input type="text" name="topic" placeholder="Topic" required="">
+									<br>
+								</div>
+												<div class="contact-fields-w3ls">
+<br>
+
+												<h2>Enter Comments if any:</h2>
+
+
+												<textarea rows="4" cols="50" name="comment" >
+														Enter text here...</textarea>
+
+
+											</div>
+
+
+<br>
+							   <input type="file" name="document">
+												<br>
+							   <button type="submit"> Uploadfile </button>
+							</form>
+
+
+
+    </div>
+{% endblock %}

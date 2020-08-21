@@ -1,0 +1,36 @@
+{% extends 'administrativeOfficer/base.html' %}
+{% block allot_active %} active {% endblock %}
+{% block home_active %} passive {% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+    <div style="padding-left: 2%; padding-top: 1%;padding-bottom: 5%;width: 90%;">
+
+
+
+
+							<h2>Upload study material</h2><a href="/">Home</a>
+							<form method="post" enctype="multipart/form-data">
+							   {% csrf_token %}
+
+								<div class="reg-fom-btm mt-5">
+									<div class="fields">
+											<div class="col-md-6 contact_left_grid">
+								<div class="contact-fields-w3ls">
+								<input type="text" name="name" placeholder="name" required="">
+								</div>
+
+								<div class="contact-fields-w3ls">
+								<input type="text" name="educourse" placeholder="IIT/CBSE/UPSC/Banks" required="">
+								</div>
+								</div>
+
+							   <input type="file" name="document">
+							   <button type="submit"> Uploadfile </button>
+							</form>
+
+
+
+    </div>
+{% endblock %}
